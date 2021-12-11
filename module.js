@@ -60,6 +60,13 @@ class App {
 
       this.countdown.innerText =
         "D-" + String(Math.floor(gap / 1000 / 60 / 60 / 24));
+
+      let gifImg = document.createElement("img");
+
+      gifImg.className = "gif";
+      gifImg.src = "https://media2.giphy.com/media/VKwspRV2pafJu/giphy.gif";
+
+      document.querySelector(".gifContainer").appendChild(gifImg);
     } else {
       // mobile
       this.loadingComponent.classList.add("hidden");
