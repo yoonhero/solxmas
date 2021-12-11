@@ -69,6 +69,7 @@ class App {
       document.querySelector(".gifContainer").appendChild(gifImg);
     } else {
       // mobile
+      this.quote = new Quote(Math.floor(Math.random() * 6 + 1) * 1000);
       // this.loadingComponent.classList.add("hidden");
       // this.mobile.classList.remove("hidden");
     }
