@@ -69,8 +69,8 @@ class App {
       document.querySelector(".gifContainer").appendChild(gifImg);
     } else {
       // mobile
-      this.loadingComponent.classList.add("hidden");
-      this.mobile.classList.remove("hidden");
+      // this.loadingComponent.classList.add("hidden");
+      // this.mobile.classList.remove("hidden");
     }
   }
 }
