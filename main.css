@@ -305,3 +305,11 @@ p {
   max-width: 100%;
   min-width: 50%;
 }
+
+.madeby {
+  font-family: "Jua", sans-serif;
+  position: fixed;
+  bottom: 0;
+  font-size: 15px;
+  font-weight: 300;
+}
