@@ -43,7 +43,6 @@ class Quote {
   }
 
   changeQuote() {
-    console.log("hi");
     let randomQ = "- " + randomQuote() + " -";
 
     quoteText.innerText = randomQ;
