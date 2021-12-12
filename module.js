@@ -34,7 +34,7 @@ class App {
 
     let gap = countDate - now;
 
-    if (this.screen < 680) {
+    if (this.screen > 680) {
       // desktop
 
       if (this.loading) {
