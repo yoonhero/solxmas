@@ -317,7 +317,7 @@ p {
 .dragNdrop {
   border: 4px solid rgba(0, 0, 0, 0.4);
   border-radius: 20px;
-  width: 100%;
+  width: 90%;
   max-width: 600px;
   min-height: 300px;
   display: flex;
