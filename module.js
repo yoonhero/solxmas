@@ -29,11 +29,16 @@ class App {
   }
 
   async initScreen() {
-    if (this.screen > 680) {
+    const countDate = new Date("dec 25, 2021 00:00:00").getTime();
+    let now = new Date().getTime();
+
+    let gap = countDate - now;
+
+    if (this.screen < 680) {
       // desktop
 
       if (this.loading) {
-        this.quote = new Quote(Math.floor(Math.random() * 4 + 1) * 1000);
+        this.quote = new Quote(Math.floor(Math.random() * 6 + 2) * 1000);
         // load tensorflow model first
         this.webcamTensorflow = new WebcamTensorflow();
 
@@ -43,6 +48,13 @@ class App {
         if (ok) {
           this.loading = false;
           this.quote.deleteInterval();
+
+          let gifImg = document.createElement("img");
+
+          gifImg.className = "gif";
+          gifImg.src = "https://media2.giphy.com/media/VKwspRV2pafJu/giphy.gif";
+
+          document.querySelector(".gifContainer").appendChild(gifImg);
         } else {
           return;
         }
@@ -53,25 +65,32 @@ class App {
 
       this.countdown = this.desktop.querySelector(".countdonwText");
 
-      const countDate = new Date("dec 25, 2021 00:00:00").getTime();
-      let now = new Date().getTime();
+      this.countdown.innerText =
+        "D-" + String(Math.floor(gap / 1000 / 60 / 60 / 24));
+    } else {
+      // mobile
 
-      let gap = countDate - now;
+      if (this.loading) {
+        this.quote = new Quote(Math.floor(Math.random() * 6 + 1) * 1000);
+
+        this.loading = false;
+        this.quote.deleteInterval();
+
+        let gifImg = document.createElement("img");
+
+        gifImg.className = "gif";
+        gifImg.src = "https://media2.giphy.com/media/VKwspRV2pafJu/giphy.gif";
+
+        document.querySelector(".mobileGifContainer").appendChild(gifImg);
+      }
+
+      this.loadingComponent.classList.add("hidden");
+      this.mobile.classList.remove("hidden");
+
+      this.countdown = this.mobile.querySelector(".countdonwText");
 
       this.countdown.innerText =
         "D-" + String(Math.floor(gap / 1000 / 60 / 60 / 24));
-
-      let gifImg = document.createElement("img");
-
-      gifImg.className = "gif";
-      gifImg.src = "https://media2.giphy.com/media/VKwspRV2pafJu/giphy.gif";
-
-      document.querySelector(".gifContainer").appendChild(gifImg);
-    } else {
-      // mobile
-      this.quote = new Quote(Math.floor(Math.random() * 6 + 1) * 1000);
-      // this.loadingComponent.classList.add("hidden");
-      // this.mobile.classList.remove("hidden");
     }
   }
 }
