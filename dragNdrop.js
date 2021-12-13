@@ -7,6 +7,7 @@ const dragNdropContainer = document.querySelector(".dragNdrop ");
 const mpredictButton = document.querySelector(".mobilePredict");
 const tryAgain = document.querySelector(".tryAgain");
 const mlabelContainer = document.getElementById("mlabel-container");
+const mresult = document.querySelector(".mresult");
 
 dropZoneElement.addEventListener("click", (e) => {
   inputElement.click();
@@ -14,9 +15,6 @@ dropZoneElement.addEventListener("click", (e) => {
 
 document.querySelector(".tryAgain").addEventListener("click", (e) => {
   inputElement.click();
-  mlabelContainer.classList.add("hidden");
-  tryAgain.classList.add("hidden");
-  mpredictButton.classList.remove("hidden");
 });
 
 inputElement.addEventListener("change", (e) => {
@@ -59,9 +57,11 @@ function updateThumbnail(dropZoneElement, file) {
   Image.onload = function () {
     window.URL.revokeObjectURL(this.src);
   };
-
+  mresult.classList.add("hidden");
+  mlabelContainer.classList.add("hidden");
   dragNdropContainer.classList.add("hidden");
   mpredictButton.classList.remove("hidden");
+  tryAgain.classList.add("hidden");
   // const info = document.createElement("span");
   // info.innerHTML = file.name + " " + file.size + " bytes";
   // dropZoneElement.appendChild(info);
