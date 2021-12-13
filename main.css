@@ -345,7 +345,7 @@ p {
 }
 
 .dragNdrop:hover {
-  background-color: rgba(0, 0, 0, 0.2);
+  /* background-color: rgba(0, 0, 0, 0.2); */
   border: 5px dotted rgba(0, 0, 0, 0.6);
 }
 
