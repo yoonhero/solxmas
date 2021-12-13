@@ -2,8 +2,21 @@ let inputElement = document.querySelector(".dragNdropInput");
 
 const dropZoneElement = document.querySelector(".drag-zone");
 
+const dragNdropContainer = document.querySelector(".dragNdrop ");
+
+const mpredictButton = document.querySelector(".mobilePredict");
+const tryAgain = document.querySelector(".tryAgain");
+const mlabelContainer = document.getElementById("mlabel-container");
+
 dropZoneElement.addEventListener("click", (e) => {
   inputElement.click();
+});
+
+document.querySelector(".tryAgain").addEventListener("click", (e) => {
+  inputElement.click();
+  mlabelContainer.classList.add("hidden");
+  tryAgain.classList.add("hidden");
+  mpredictButton.classList.remove("hidden");
 });
 
 inputElement.addEventListener("change", (e) => {
@@ -35,34 +48,23 @@ dropZoneElement.addEventListener("drop", (e) => {
 });
 
 function updateThumbnail(dropZoneElement, file) {
-  console.log("yeyeyye");
-  let thumbnailElement = dropZoneElement.querySelector(".drop-zone__thumb");
-
   // First time - remove the prompt
   if (dropZoneElement.querySelector(".drop-zone__prompt")) {
     dropZoneElement.querySelector(".drop-zone__prompt").remove();
   }
 
-  // First time - there is no thumbnail element, so lets create it
-  if (!thumbnailElement) {
-    thumbnailElement = document.createElement("div");
-    thumbnailElement.classList.add("drop-zone__thumb");
-    dropZoneElement.appendChild(thumbnailElement);
-  }
+  const thumbnailElement = document.querySelector(".thumbnailElement");
 
-  thumbnailElement.dataset.label = file.name;
+  thumbnailElement.src = window.URL.createObjectURL(file);
+  Image.onload = function () {
+    window.URL.revokeObjectURL(this.src);
+  };
 
-  // Show thumbnail for image files
-  if (file.type.startsWith("image/")) {
-    const reader = new FileReader();
-
-    reader.readAsDataURL(file);
-    reader.onload = () => {
-      thumbnailElement.style.backgroundImage = `url('${reader.result}')`;
-    };
-  } else {
-    thumbnailElement.style.backgroundImage = null;
-  }
+  dragNdropContainer.classList.add("hidden");
+  mpredictButton.classList.remove("hidden");
+  // const info = document.createElement("span");
+  // info.innerHTML = file.name + " " + file.size + " bytes";
+  // dropZoneElement.appendChild(info);
 }
 
 // <script type="text/javascript">

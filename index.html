@@ -112,33 +112,39 @@
   <!-- <button class="btn start" type="button" onclick="init()">분석하기!</button> -->
   <div class="container">
 
+    <img class="thumbnailElement" />
+    <button class="btn mobilePredict hidden">분석하기!</button>
+    
+  <div class="ploader hidden"></div>
+
+    <div id="mlabel-container" class="hidden">
+      <div class="analystic">
+        <p class="mcategory">COUPLE</p>
+        <div class="bar">
+          <div class="mbar_main"></div>
+          <div class="bar_bg"></div>
+          <div class="mbar_text">0%</div>
+        </div>
+      </div>
+
+      <div class="analystic">
+        <p class="mcategory">SOLO</p>
+        <div class="bar">
+          <div class="mbar_main"></div>
+          <div class="bar_bg"></div>
+          <div class="mbar_text">0%</div>
+        </div>
+      </div>
+    </div>
+
+    <button class="btn tryAgain hidden">다른 사진으로 시도하기!</button>
+
     <div class="dragNdrop drag-zone" >
       <form class="fileUpload">
         <label for="dragNdropInput">사진 추가하기!</label>
-        <input type="file" id="dragNdropInput" name="dragNdropInput" class="hidden dragNdropInput" />
+        <input type="file" accept="image/*"  id="dragNdropInput" name="dragNdropInput" class="hidden dragNdropInput" />
       </form>
     </div>
-
-    <div id="label-container" class="hidden">
-      <div class="analystic">
-        <p class="category">COUPLE</p>
-        <div class="bar">
-          <div class="bar_main"></div>
-          <div class="bar_bg"></div>
-          <div class="bar_text">0%</div>
-        </div>
-      </div>
-
-      <div class="analystic">
-        <p class="category">SOLO</p>
-        <div class="bar">
-          <div class="bar_main"></div>
-          <div class="bar_bg"></div>
-          <div class="bar_text">0%</div>
-        </div>
-      </div>
-    </div>
-    
    
   </div>
 

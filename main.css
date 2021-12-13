@@ -51,7 +51,7 @@ main {
 .btn {
   font-family: "Jua", sans-serif;
   padding: 1.3em 3em;
-  font-size: 12px;
+  font-size: 18px;
   text-transform: uppercase;
   letter-spacing: 2.5px;
   font-weight: 500;
@@ -100,13 +100,18 @@ button:active {
   overflow: hidden;
 }
 
-#label-container {
+#label-container,
+#mlabel-container {
   margin: 10px;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+#mlabel-container {
+  max-width: 580px;
 }
 
 .bar {
@@ -123,7 +128,8 @@ button:active {
   overflow: hidden;
 }
 
-.bar_main {
+.bar_main,
+.mbar_main {
   position: absolute;
   top: 0;
   left: 0;
@@ -132,13 +138,15 @@ button:active {
   background-color: #2ec4b6;
 }
 
-.bar_bg {
+.bar_bg,
+.mbar_bg {
   width: 100%;
   height: 40px;
   background-color: #cbf3f0;
 }
 
-.bar_text {
+.bar_text,
+.mbar_text {
   position: absolute;
   top: 0;
   padding: 10px;
@@ -235,6 +243,15 @@ p {
   animation: spin 2s linear infinite;
 }
 
+.ploader {
+  border: 12px solid #cadfdb; /* Light grey */
+  border-top: 12px solid #48947e; /* Blue */
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 2s linear infinite;
+}
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -317,7 +334,7 @@ p {
 .dragNdrop {
   border: 4px solid rgba(0, 0, 0, 0.4);
   border-radius: 20px;
-  width: 90%;
+  width: 100%;
   max-width: 600px;
   min-height: 300px;
   display: flex;
@@ -341,4 +358,16 @@ p {
 .drop-zone--over {
   background-color: rgba(0, 0, 0, 0.2);
   border: 5px dotted rgba(0, 0, 0, 0.6);
+}
+
+.thumbnailElement {
+  max-width: 60%;
+  min-width: 50%;
+  border-radius: 20px;
+  margin: 20px;
+}
+
+.mobilePredict,
+.tryAgain {
+  margin: 30px;
 }

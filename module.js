@@ -1,3 +1,4 @@
+import PredictImage from "./predictImage.js";
 import Quote from "./quote.js";
 import WebcamTensorflow from "./webcam.js";
 
@@ -71,7 +72,12 @@ class App {
       // mobile
 
       if (this.loading) {
+        this.predictImage = new PredictImage();
+
         this.quote = new Quote(Math.floor(Math.random() * 6 + 1) * 1000);
+        document.querySelector(".loadingText").innerText = "인공지능 로딩중...";
+
+        await this.predictImage.Init();
 
         this.loading = false;
         this.quote.deleteInterval();
@@ -83,6 +89,15 @@ class App {
 
         document.querySelector(".mobileGifContainer").appendChild(gifImg);
       }
+
+      this.loader = document.querySelector(".ploader");
+
+      document
+        .querySelector(".mobilePredict")
+        .addEventListener("click", async () => {
+          this.loader.classList.remove("hidden");
+          await this.predictImage.Predict();
+        });
 
       this.loadingComponent.classList.add("hidden");
       this.mobile.classList.remove("hidden");
