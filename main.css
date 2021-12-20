@@ -5,6 +5,8 @@
 
 body {
   /* background: #53c49544; */
+  max-height: 100vw;
+  min-height: 100vw;
 }
 
 .header {
