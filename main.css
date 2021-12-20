@@ -372,7 +372,6 @@ p {
   border-radius: 20px;
   margin: 20px;
   transition: transform 0.6s;
-  transform-style: preserve-3d;
 }
 
 .mobilePredict,
