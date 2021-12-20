@@ -9,6 +9,29 @@ class PredictImage {
     this.tryAgain = document.querySelector(".tryAgain");
     this.loader = document.querySelector(".ploader");
     this.mresult = document.querySelector(".mresult");
+
+    this.resultList = {
+      solo: [
+        "너무 슬퍼 울지는 마요...",
+        "ㅠ.ㅠ",
+        "슬픔담에는 기쁨이 찾아올거에요...",
+        "결과는 장난일뿐이니 자신감을 가지세요!!!",
+        "ㅎ.ㅎ",
+        "솔크를 축하드립니다!!",
+        "용기를 내보세요!",
+        "친구들에게 공유해주세요 ㅎㅎ",
+        "결과를 공유해주세요!!",
+        "내가 여친/남친 해줄게",
+      ],
+
+      couple: [
+        "^^",
+        "너무 기뻐하지는 마세요. 결과는 장난일뿐이에요!",
+        "(웃고 있는 모습 상상된다)",
+        "저에게 감사해주세요!",
+        "활짝 웃어요!",
+      ],
+    };
   }
   async Init() {
     const modelURL = this.URL + "model.json";
@@ -39,8 +62,12 @@ class PredictImage {
 
         this.mresult.querySelector(".mresultDes").innerText =
           prediction[i].className === "solo"
-            ? "너무 슬퍼 울지 마세요 ... 결과는 장난일뿐이니 자신감을 가지세요!!"
-            : "^^";
+            ? this.resultList.solo[
+                Math.floor(Math.random() * this.resultList.solo.length)
+              ]
+            : this.resultList.couple[
+                Math.floor(Math.random() * this.resultList.couple.length)
+              ];
       }
     }
 

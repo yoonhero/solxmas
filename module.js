@@ -66,8 +66,12 @@ class App {
 
       this.countdown = this.desktop.querySelector(".countdonwText");
 
-      this.countdown.innerText =
-        "D-" + String(Math.floor(gap / 1000 / 60 / 60 / 24));
+      const countdownText =
+        String(Math.floor(gap / 1000 / 60 / 60 / 24) + 1) == "0"
+          ? "Day"
+          : String(Math.floor(gap / 1000 / 60 / 60 / 24) + 1);
+
+      this.countdown.innerText = "D-" + countdownText;
     } else {
       // mobile
 
