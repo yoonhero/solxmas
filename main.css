@@ -90,6 +90,10 @@ button:active {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: relative;
+  padding-top: 80px;
+  padding-bottom: 100px;
+  background-color: #dbf5ea;
 }
 
 #webcam-container {
@@ -404,4 +408,44 @@ p {
 
 .flip {
   transform: scaleX(-1);
+}
+
+.custom-shape-divider-top-1640041450 {
+  position: absolute;
+  top: 0;
+
+  width: 100vw;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-top-1640041450 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 83px;
+}
+
+.custom-shape-divider-top-1640041450 .shape-fill {
+  fill: #fff;
+}
+
+.custom-shape-divider-bottom-1640041660 {
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1640041660 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 83px;
+}
+
+.custom-shape-divider-bottom-1640041660 .shape-fill {
+  fill: #fff;
 }
