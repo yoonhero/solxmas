@@ -371,6 +371,7 @@ p {
   min-width: 50%;
   border-radius: 20px;
   margin: 20px;
+  transform: scaleX(1);
 }
 
 .mobilePredict,
