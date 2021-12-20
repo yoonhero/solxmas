@@ -54,6 +54,9 @@ function updateThumbnail(dropZoneElement, file) {
   const thumbnailElement = document.querySelector(".thumbnailElement");
 
   thumbnailElement.src = window.URL.createObjectURL(file);
+  thumbnailElement.addEventListener("click", () => {
+    thumbnailElement.classList.toggle("flip");
+  });
   Image.onload = function () {
     window.URL.revokeObjectURL(this.src);
   };
