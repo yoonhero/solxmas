@@ -30,7 +30,7 @@ class App {
   }
 
   async initScreen() {
-    const countDate = new Date("dec 25, 2021 00:00:00").getTime();
+    const countDate = new Date("dec 25, 2022 00:00:00").getTime();
     let now = new Date().getTime();
 
     let gap = countDate - now;
